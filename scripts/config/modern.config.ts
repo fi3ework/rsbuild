@@ -9,7 +9,10 @@ import {
 } from '@modern-js/module-tools';
 
 export const define = {
-  RSBUILD_VERSION: require('../../packages/core/package.json').version,
+  RSBUILD_VERSION: JSON.stringify(
+    require('../../packages/core/package.json').version,
+  ),
+  'process.env.NODE_ENV': 'process.env.NODE_ENV',
 };
 
 export const BUILD_TARGET = {

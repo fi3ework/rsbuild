@@ -1,7 +1,8 @@
 /**
  * This file is used to get/set the global instance for html-plugin and css-extract plugin.
  */
-import rspack from '@rspack/core';
+import { rspack } from '@rspack/core';
+import angular from 'angular';
 import type { HtmlRspackPlugin } from './types';
 
 let htmlPlugin: typeof HtmlRspackPlugin;
@@ -17,20 +18,26 @@ export const setHTMLPlugin = (plugin: typeof HtmlRspackPlugin): void => {
 
 export const getHTMLPlugin = (): typeof HtmlRspackPlugin => {
   if (!htmlPlugin) {
-    htmlPlugin = require('html-rspack-plugin');
+    // htmlPlugin = require('html-rspack-plugin');
   }
   return htmlPlugin;
 };
 
-let cssExtractPlugin: unknown;
+// let cssExtractPlugin: unknown;
 
 export const setCssExtractPlugin = (plugin: unknown): void => {
-  cssExtractPlugin = plugin;
+  // cssExtractPlugin = plugin;
 };
 
-export const getCssExtractPlugin = (): typeof rspack.CssExtractRspackPlugin => {
-  if (cssExtractPlugin) {
-    return cssExtractPlugin as typeof rspack.CssExtractRspackPlugin;
-  }
-  return rspack.CssExtractRspackPlugin;
+export const getCssExtractPlugin = async () => {
+  // const rspack = await import('@rspack/core');
+  // if (cssExtractPlugin) {
+  //   return cssExtractPlugin as typeof rspack.CssExtractRspackPlugin;
+  // }
+  return {
+    //
+    rspack,
+    //
+    angular,
+  };
 };

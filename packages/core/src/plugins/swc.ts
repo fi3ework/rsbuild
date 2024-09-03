@@ -133,10 +133,10 @@ export const pluginSwc = (): RsbuildPlugin => ({
         applySwcDecoratorConfig(swcConfig, config);
 
         if (swcConfig.jsc?.externalHelpers) {
-          chain.resolve.alias.set(
-            '@swc/helpers',
-            path.dirname(require.resolve('@swc/helpers/package.json')),
-          );
+          // chain.resolve.alias.set(
+          //   '@swc/helpers',
+          //   path.dirname(require.resolve('@swc/helpers/package.json')),
+          // );
         }
 
         // apply polyfill
@@ -201,7 +201,7 @@ async function applyCoreJs(
   swcConfig: SwcLoaderOptions,
   polyfillMode: Polyfill,
 ) {
-  const coreJsPath = require.resolve('core-js/package.json');
+  const coreJsPath = 'core-js/package.json';
   const version = getCoreJsVersion(coreJsPath);
   const coreJsDir = path.dirname(coreJsPath);
 

@@ -61,7 +61,10 @@
   },
   "pnpm": {
     "overrides": {
-      "esbuild": "~0.19.0"
+      "esbuild": "~0.19.0",
+      "@rslib/core": "link:../rslib/packages/core",
+      "@rspack/core": "link:../rspack/packages/rspack",
+      "@rspack/cli": "link:../rspack/packages/rspack-cli"
     }
   }
 }
